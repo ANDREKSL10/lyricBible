@@ -8,7 +8,7 @@
       href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B700%3B800"
     />
 
-    <title>Stitch Design</title>
+    <title>Search Results - Lyric Bible Match</title>
     <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
 
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -30,11 +30,12 @@
           </div>
           <div class="flex flex-1 justify-end gap-8">
             <div class="flex items-center gap-9">
-              <a class="text-[#141414] text-sm font-medium leading-normal" href="#">Home</a>
-              <a class="text-[#141414] text-sm font-medium leading-normal" href="#">About</a>
-              <a class="text-[#141414] text-sm font-medium leading-normal" href="#">Contact</a>
+              <a class="text-[#141414] text-sm font-medium leading-normal" href="index.html">Home</a>
+              <a class="text-[#141414] text-sm font-medium leading-normal" href="#about">About</a>
+              <a class="text-[#141414] text-sm font-medium leading-normal" href="#contact">Contact</a>
             </div>
             <button
+              onclick="showInfo()"
               class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-[#f2f2f2] text-[#141414] gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5"
             >
               <div class="text-[#141414]" data-icon="Question" data-size="20px" data-weight="regular">
@@ -69,11 +70,14 @@
                     </svg>
                   </div>
                   <input
+                    id="searchField"
                     class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#141414] focus:outline-0 focus:ring-0 border-none bg-[#f2f2f2] focus:border-none h-full placeholder:text-[#757575] px-4 rounded-r-none border-r-0 pr-2 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal"
-                    value="Lyrics about faith"
+                    placeholder="Search lyrics or themes (love, hope, faith, peace...)"
+                    value=""
                   />
                   <div class="flex items-center justify-center rounded-r-lg border-l-0 border-none bg-[#f2f2f2] pr-2 pr-4">
                     <button
+                      onclick="clearSearch()"
                       class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-transparent text-[#141414] gap-2 text-base font-bold leading-normal tracking-[0.015em] h-auto min-w-0 px-0"
                     >
                       <div class="text-[#757575]" data-icon="XCircle" data-size="24px" data-weight="regular">
@@ -88,106 +92,30 @@
                 </div>
               </label>
             </div>
-            <h2 class="text-[#141414] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Matching Bible Passages</h2>
-            <div class="flex gap-4 bg-white px-4 py-3 justify-between">
-              <div class="flex flex-1 flex-col justify-center">
-                <p class="text-[#141414] text-base font-medium leading-normal">Jeremiah 29:11</p>
-                <p class="text-[#757575] text-sm font-normal leading-normal">Match Score: 95%</p>
-                <p class="text-[#757575] text-sm font-normal leading-normal">
-                  For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, plans to give you hope and a future.
-                </p>
-              </div>
-              <div class="shrink-0">
-                <div class="text-[#141414] flex size-7 items-center justify-center" data-icon="Share" data-size="24px" data-weight="regular">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                    <path
-                      d="M229.66,109.66l-48,48a8,8,0,0,1-11.32-11.32L204.69,112H165a88,88,0,0,0-85.23,66,8,8,0,0,1-15.5-4A103.94,103.94,0,0,1,165,96h39.71L170.34,61.66a8,8,0,0,1,11.32-11.32l48,48A8,8,0,0,1,229.66,109.66ZM192,208H40V88a8,8,0,0,0-16,0V208a16,16,0,0,0,16,16H192a8,8,0,0,0,0-16Z"
-                    ></path>
-                  </svg>
-                </div>
-              </div>
+            
+            <div class="px-4 py-2">
+              <p class="text-[#757575] text-sm">
+                <strong>Database:</strong> <span id="verseCount">0</span> Bible verses loaded | 
+                <strong>Try searching:</strong> love, hope, faith, peace, strength, fear, joy, worship, salvation, forgiveness
+              </p>
             </div>
-            <div class="flex gap-4 bg-white px-4 py-3 justify-between">
-              <div class="flex flex-1 flex-col justify-center">
-                <p class="text-[#141414] text-base font-medium leading-normal">Proverbs 3:5-6</p>
-                <p class="text-[#757575] text-sm font-normal leading-normal">Match Score: 92%</p>
-                <p class="text-[#757575] text-sm font-normal leading-normal">
-                  Trust in the Lord with all your heart and lean not on your own understanding; in all your ways submit to him, and he will make your paths straight.
-                </p>
-              </div>
-              <div class="shrink-0">
-                <div class="text-[#141414] flex size-7 items-center justify-center" data-icon="Share" data-size="24px" data-weight="regular">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                    <path
-                      d="M229.66,109.66l-48,48a8,8,0,0,1-11.32-11.32L204.69,112H165a88,88,0,0,0-85.23,66,8,8,0,0,1-15.5-4A103.94,103.94,0,0,1,165,96h39.71L170.34,61.66a8,8,0,0,1,11.32-11.32l48,48A8,8,0,0,1,229.66,109.66ZM192,208H40V88a8,8,0,0,0-16,0V208a16,16,0,0,0,16,16H192a8,8,0,0,0,0-16Z"
-                    ></path>
-                  </svg>
-                </div>
-              </div>
+
+            <h2 class="text-[#141414] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5" id="resultsTitle">Matching Bible Passages</h2>
+            
+            <div id="searchResults">
+              <!-- Results will be loaded here by JavaScript -->
             </div>
-            <div class="flex gap-4 bg-white px-4 py-3 justify-between">
-              <div class="flex flex-1 flex-col justify-center">
-                <p class="text-[#141414] text-base font-medium leading-normal">Psalm 23:1-3</p>
-                <p class="text-[#757575] text-sm font-normal leading-normal">Match Score: 90%</p>
-                <p class="text-[#757575] text-sm font-normal leading-normal">
-                  The Lord is my shepherd, I lack nothing. He makes me lie down in green pastures, he leads me beside quiet waters, he refreshes my soul.
-                </p>
-              </div>
-              <div class="shrink-0">
-                <div class="text-[#141414] flex size-7 items-center justify-center" data-icon="Share" data-size="24px" data-weight="regular">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                    <path
-                      d="M229.66,109.66l-48,48a8,8,0,0,1-11.32-11.32L204.69,112H165a88,88,0,0,0-85.23,66,8,8,0,0,1-15.5-4A103.94,103.94,0,0,1,165,96h39.71L170.34,61.66a8,8,0,0,1,11.32-11.32l48,48A8,8,0,0,1,229.66,109.66ZM192,208H40V88a8,8,0,0,0-16,0V208a16,16,0,0,0,16,16H192a8,8,0,0,0,0-16Z"
-                    ></path>
-                  </svg>
-                </div>
-              </div>
-            </div>
-            <div class="flex gap-4 bg-white px-4 py-3 justify-between">
-              <div class="flex flex-1 flex-col justify-center">
-                <p class="text-[#141414] text-base font-medium leading-normal">Joshua 1:9</p>
-                <p class="text-[#757575] text-sm font-normal leading-normal">Match Score: 88%</p>
-                <p class="text-[#757575] text-sm font-normal leading-normal">
-                  Have I not commanded you? Be strong and courageous. Do not be afraid; do not be discouraged, for the Lord your God will be with you wherever you go.
-                </p>
-              </div>
-              <div class="shrink-0">
-                <div class="text-[#141414] flex size-7 items-center justify-center" data-icon="Share" data-size="24px" data-weight="regular">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                    <path
-                      d="M229.66,109.66l-48,48a8,8,0,0,1-11.32-11.32L204.69,112H165a88,88,0,0,0-85.23,66,8,8,0,0,1-15.5-4A103.94,103.94,0,0,1,165,96h39.71L170.34,61.66a8,8,0,0,1,11.32-11.32l48,48A8,8,0,0,1,229.66,109.66ZM192,208H40V88a8,8,0,0,0-16,0V208a16,16,0,0,0,16,16H192a8,8,0,0,0,0-16Z"
-                    ></path>
-                  </svg>
-                </div>
-              </div>
-            </div>
-            <div class="flex gap-4 bg-white px-4 py-3 justify-between">
-              <div class="flex flex-1 flex-col justify-center">
-                <p class="text-[#141414] text-base font-medium leading-normal">Isaiah 40:31</p>
-                <p class="text-[#757575] text-sm font-normal leading-normal">Match Score: 85%</p>
-                <p class="text-[#757575] text-sm font-normal leading-normal">
-                  But those who hope in the Lord will renew their strength. They will soar on wings like eagles; they will run and not grow weary, they will walk and not be faint.
-                </p>
-              </div>
-              <div class="shrink-0">
-                <div class="text-[#141414] flex size-7 items-center justify-center" data-icon="Share" data-size="24px" data-weight="regular">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                    <path
-                      d="M229.66,109.66l-48,48a8,8,0,0,1-11.32-11.32L204.69,112H165a88,88,0,0,0-85.23,66,8,8,0,0,1-15.5-4A103.94,103.94,0,0,1,165,96h39.71L170.34,61.66a8,8,0,0,1,11.32-11.32l48,48A8,8,0,0,1,229.66,109.66ZM192,208H40V88a8,8,0,0,0-16,0V208a16,16,0,0,0,16,16H192a8,8,0,0,0,0-16Z"
-                    ></path>
-                  </svg>
-                </div>
-              </div>
-            </div>
+
             <h2 class="text-[#141414] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Advertisement</h2>
             <div class="p-4">
               <div class="flex items-stretch justify-between gap-4 rounded-lg">
                 <div class="flex flex-[2_2_0px] flex-col gap-4">
                   <div class="flex flex-col gap-1">
                     <p class="text-[#141414] text-base font-bold leading-tight">Explore the Bible</p>
-                    <p class="text-[#757575] text-sm font-normal leading-normal">Discover more about the Bible and its teachings.</p>
+                    <p class="text-[#757575] text-sm font-normal leading-normal">Discover more about the Bible and its teachings with our expanded database of verses.</p>
                   </div>
                   <button
+                    onclick="learnMore()"
                     class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 flex-row-reverse bg-[#f2f2f2] text-[#141414] text-sm font-medium leading-normal w-fit"
                   >
                     <span class="truncate">Learn More</span>
@@ -203,5 +131,678 @@
         </div>
       </div>
     </div>
+
+    <script>
+      // EXPANDED BIBLE DATABASE - Comprehensive collection of verses organized by themes
+      const bibleDatabase = [
+        // LOVE & RELATIONSHIPS
+        {
+          reference: "1 Corinthians 13:4-7",
+          text: "Love is patient, love is kind. It does not envy, it does not boast, it is not proud. It does not dishonor others, it is not self-seeking, it is not easily angered, it keeps no record of wrongs. Love does not delight in evil but rejoices with the truth. It always protects, always trusts, always hopes, always perseveres.",
+          keywords: ["love", "patient", "kind", "protect", "trust", "hope", "relationship", "marriage", "heart"]
+        },
+        {
+          reference: "John 3:16",
+          text: "For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life.",
+          keywords: ["love", "God", "world", "believe", "eternal", "life", "son", "salvation"]
+        },
+        {
+          reference: "1 John 4:8",
+          text: "Whoever does not love does not know God, because God is love.",
+          keywords: ["love", "God", "know", "divine", "heart"]
+        },
+        {
+          reference: "1 John 4:19",
+          text: "We love because he first loved us.",
+          keywords: ["love", "first", "God", "response", "heart"]
+        },
+        {
+          reference: "Song of Songs 8:7",
+          text: "Many waters cannot quench love; rivers cannot sweep it away. If one were to give all the wealth of one's house for love, it would be utterly scorned.",
+          keywords: ["love", "water", "river", "wealth", "cannot", "eternal", "strong"]
+        },
+
+        // FAITH & TRUST
+        {
+          reference: "Hebrews 11:1",
+          text: "Now faith is confidence in what we hope for and assurance about what we do not see.",
+          keywords: ["faith", "confidence", "hope", "assurance", "see", "believe", "trust"]
+        },
+        {
+          reference: "Proverbs 3:5-6",
+          text: "Trust in the Lord with all your heart and lean not on your own understanding; in all your ways submit to him, and he will make your paths straight.",
+          keywords: ["trust", "Lord", "heart", "understanding", "path", "straight", "way", "faith"]
+        },
+        {
+          reference: "Jeremiah 29:11",
+          text: "For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, plans to give you hope and a future.",
+          keywords: ["plans", "prosper", "harm", "hope", "future", "Lord", "know", "faith"]
+        },
+        {
+          reference: "Romans 10:17",
+          text: "Consequently, faith comes from hearing the message, and the message is heard through the word about Christ.",
+          keywords: ["faith", "hearing", "message", "word", "Christ", "believe"]
+        },
+        {
+          reference: "Matthew 17:20",
+          text: "He replied, 'Because you have so little faith. Truly I tell you, if you have faith as small as a mustard seed, you can say to this mountain, 'Move from here to there,' and it will move. Nothing will be impossible for you.'",
+          keywords: ["faith", "little", "mustard", "seed", "mountain", "move", "impossible", "believe"]
+        },
+
+        // HOPE & ENCOURAGEMENT
+        {
+          reference: "Isaiah 40:31",
+          text: "But those who hope in the Lord will renew their strength. They will soar on wings like eagles; they will run and not grow weary, they will walk and not be faint.",
+          keywords: ["hope", "Lord", "renew", "strength", "eagles", "soar", "wings", "run", "weary", "walk"]
+        },
+        {
+          reference: "Romans 15:13",
+          text: "May the God of hope fill you with all joy and peace as you trust in him, so that you may overflow with hope by the power of the Holy Spirit.",
+          keywords: ["hope", "God", "joy", "peace", "trust", "overflow", "Holy Spirit", "power"]
+        },
+        {
+          reference: "Lamentations 3:22-23",
+          text: "Because of the Lord's great love we are not consumed, for his compassions never fail. They are new every morning; great is your faithfulness.",
+          keywords: ["love", "consumed", "compassion", "fail", "new", "morning", "faithfulness", "great"]
+        },
+        {
+          reference: "Psalm 42:11",
+          text: "Why, my soul, are you downcast? Why so disturbed within me? Put your hope in God, for I will yet praise him, my Savior and my God.",
+          keywords: ["soul", "downcast", "disturbed", "hope", "God", "praise", "savior"]
+        },
+
+        // STRENGTH & COURAGE
+        {
+          reference: "Philippians 4:13",
+          text: "I can do all things through Christ who strengthens me.",
+          keywords: ["can do", "all things", "Christ", "strengthen", "power", "ability", "possible"]
+        },
+        {
+          reference: "Joshua 1:9",
+          text: "Have I not commanded you? Be strong and courageous. Do not be afraid; do not be discouraged, for the Lord your God will be with you wherever you go.",
+          keywords: ["strong", "courageous", "afraid", "discouraged", "Lord", "God", "with you", "go", "fear"]
+        },
+        {
+          reference: "Isaiah 41:10",
+          text: "So do not fear, for I am with you; do not be dismayed, for I am your God. I will strengthen you and help you; I will uphold you with my righteous right hand.",
+          keywords: ["fear", "with you", "dismayed", "God", "strengthen", "help", "uphold", "righteous", "hand"]
+        },
+        {
+          reference: "2 Timothy 1:7",
+          text: "For the Spirit God gave us does not make us timid, but gives us power, love and self-discipline.",
+          keywords: ["Spirit", "God", "timid", "power", "love", "self-discipline", "strength"]
+        },
+        {
+          reference: "Ephesians 6:10",
+          text: "Finally, be strong in the Lord and in his mighty power.",
+          keywords: ["strong", "Lord", "mighty", "power", "strength"]
+        },
+
+        // PEACE & COMFORT
+        {
+          reference: "John 14:27",
+          text: "Peace I leave with you; my peace I give you. I do not give to you as the world gives. Do not let your hearts be troubled and do not be afraid.",
+          keywords: ["peace", "leave", "give", "world", "hearts", "troubled", "afraid", "comfort"]
+        },
+        {
+          reference: "Psalm 23:1-4",
+          text: "The Lord is my shepherd, I lack nothing. He makes me lie down in green pastures, he leads me beside quiet waters, he refreshes my soul. He guides me along the right paths for his name's sake. Even though I walk through the darkest valley, I will fear no evil, for you are with me; your rod and your staff, they comfort me.",
+          keywords: ["shepherd", "lack", "nothing", "green", "pastures", "quiet", "waters", "soul", "paths", "valley", "fear", "evil", "with me", "comfort"]
+        },
+        {
+          reference: "Philippians 4:6-7",
+          text: "Do not be anxious about anything, but in every situation, by prayer and petition, with thanksgiving, present your requests to God. And the peace of God, which transcends all understanding, will guard your hearts and your minds in Christ Jesus.",
+          keywords: ["anxious", "anything", "situation", "prayer", "petition", "thanksgiving", "requests", "peace", "God", "understanding", "guard", "hearts", "minds"]
+        },
+        {
+          reference: "Matthew 11:28-30",
+          text: "Come to me, all you who are weary and burdened, and I will give you rest. Take my yoke upon you and learn from me, for I am gentle and humble in heart, and you will find rest for your souls. For my yoke is easy and my burden is light.",
+          keywords: ["come", "weary", "burdened", "rest", "yoke", "learn", "gentle", "humble", "heart", "souls", "easy", "burden", "light"]
+        },
+
+        // JOY & CELEBRATION
+        {
+          reference: "Psalm 16:11",
+          text: "You make known to me the path of life; you fill me with joy in your presence, with eternal pleasures at your right hand.",
+          keywords: ["path", "life", "fill", "joy", "presence", "eternal", "pleasures", "right hand"]
+        },
+        {
+          reference: "Nehemiah 8:10",
+          text: "Nehemiah said, 'Go and enjoy choice food and sweet drinks, and send some to those who have nothing prepared. This day is holy to our Lord. Do not grieve, for the joy of the Lord is your strength.'",
+          keywords: ["enjoy", "food", "drinks", "holy", "Lord", "grieve", "joy", "strength"]
+        },
+        {
+          reference: "Psalm 30:5",
+          text: "For his anger lasts only a moment, but his favor lasts a lifetime; weeping may stay for the night, but rejoicing comes in the morning.",
+          keywords: ["anger", "moment", "favor", "lifetime", "weeping", "night", "rejoicing", "morning", "joy"]
+        },
+        {
+          reference: "Galatians 5:22-23",
+          text: "But the fruit of the Spirit is love, joy, peace, forbearance, kindness, goodness, faithfulness, gentleness and self-control. Against such things there is no law.",
+          keywords: ["fruit", "Spirit", "love", "joy", "peace", "forbearance", "kindness", "goodness", "faithfulness", "gentleness", "self-control"]
+        },
+
+        // FORGIVENESS & REDEMPTION
+        {
+          reference: "1 John 1:9",
+          text: "If we confess our sins, he is faithful and just and will forgive us our sins and purify us from all unrighteousness.",
+          keywords: ["confess", "sins", "faithful", "just", "forgive", "purify", "unrighteousness", "clean"]
+        },
+        {
+          reference: "Ephesians 4:32",
+          text: "Be kind and compassionate to one another, forgiving each other, just as in Christ God forgave you.",
+          keywords: ["kind", "compassionate", "forgiving", "each other", "Christ", "God", "forgave"]
+        },
+        {
+          reference: "Isaiah 43:25",
+          text: "I, even I, am he who blots out your transgressions, for my own sake, and remembers your sins no more.",
+          keywords: ["blots out", "transgressions", "remembers", "sins", "no more", "forgive"]
+        },
+        {
+          reference: "Psalm 103:12",
+          text: "As far as the east is from the west, so far has he removed our transgressions from us.",
+          keywords: ["east", "west", "far", "removed", "transgressions", "distance", "forgive"]
+        },
+
+        // WORSHIP & PRAISE
+        {
+          reference: "Psalm 100:1-2",
+          text: "Shout for joy to the Lord, all the earth. Worship the Lord with gladness; come before him with joyful songs.",
+          keywords: ["shout", "joy", "Lord", "earth", "worship", "gladness", "come", "joyful", "songs"]
+        },
+        {
+          reference: "Psalm 95:1-3",
+          text: "Come, let us sing for joy to the Lord; let us shout aloud to the Rock of our salvation. Let us come before him with thanksgiving and extol him with music and song. For the Lord is the great God, the great King above all gods.",
+          keywords: ["sing", "joy", "Lord", "shout", "Rock", "salvation", "thanksgiving", "extol", "music", "song", "great", "God", "King"]
+        },
+        {
+          reference: "Psalm 150:6",
+          text: "Let everything that has breath praise the Lord. Praise the Lord.",
+          keywords: ["everything", "breath", "praise", "Lord"]
+        },
+        {
+          reference: "John 4:24",
+          text: "God is spirit, and his worshipers must worship in the Spirit and in truth.",
+          keywords: ["God", "spirit", "worshipers", "worship", "Spirit", "truth"]
+        },
+
+        // GUIDANCE & WISDOM
+        {
+          reference: "Proverbs 2:6",
+          text: "For the Lord gives wisdom; from his mouth come knowledge and understanding.",
+          keywords: ["Lord", "gives", "wisdom", "mouth", "knowledge", "understanding"]
+        },
+        {
+          reference: "James 1:5",
+          text: "If any of you lacks wisdom, you should ask God, who gives generously to all without finding fault, and it will be given to you.",
+          keywords: ["lacks", "wisdom", "ask", "God", "gives", "generously", "fault", "given"]
+        },
+        {
+          reference: "Psalm 119:105",
+          text: "Your word is a lamp for my feet, a light on my path.",
+          keywords: ["word", "lamp", "feet", "light", "path", "guidance"]
+        },
+        {
+          reference: "Proverbs 16:9",
+          text: "In their hearts humans plan their course, but the Lord establishes their steps.",
+          keywords: ["hearts", "humans", "plan", "course", "Lord", "establishes", "steps"]
+        },
+
+        // FEAR & ANXIETY
+        {
+          reference: "Psalm 56:3",
+          text: "When I am afraid, I put my trust in you.",
+          keywords: ["afraid", "put", "trust", "you", "fear"]
+        },
+        {
+          reference: "1 Peter 5:7",
+          text: "Cast all your anxiety on him because he cares for you.",
+          keywords: ["cast", "anxiety", "him", "cares", "you", "worry"]
+        },
+        {
+          reference: "Psalm 34:4",
+          text: "I sought the Lord, and he answered me; he delivered me from all my fears.",
+          keywords: ["sought", "Lord", "answered", "delivered", "fears", "fear"]
+        },
+        {
+          reference: "Isaiah 35:4",
+          text: "Say to those with fearful hearts, 'Be strong, do not fear; your God will come, he will come with vengeance; with divine retribution he will come to save you.'",
+          keywords: ["fearful", "hearts", "strong", "fear", "God", "come", "save", "courage"]
+        },
+
+        // SALVATION & ETERNAL LIFE
+        {
+          reference: "Romans 6:23",
+          text: "For the wages of sin is death, but the gift of God is eternal life in Christ Jesus our Lord.",
+          keywords: ["wages", "sin", "death", "gift", "God", "eternal", "life", "Christ", "Jesus", "Lord"]
+        },
+        {
+          reference: "Acts 4:12",
+          text: "Salvation is found in no one else, for there is no other name under heaven given to mankind by which we must be saved.",
+          keywords: ["salvation", "found", "no one", "name", "heaven", "mankind", "saved"]
+        },
+        {
+          reference: "Romans 10:9",
+          text: "If you declare with your mouth, 'Jesus is Lord,' and believe in your heart that God raised him from the dead, you will be saved.",
+          keywords: ["declare", "mouth", "Jesus", "Lord", "believe", "heart", "God", "raised", "dead", "saved"]
+        },
+        {
+          reference: "Ephesians 2:8-9",
+          text: "For it is by grace you have been saved, through faith—and this is not from yourselves, it is the gift of God—not by works, so that no one can boast.",
+          keywords: ["grace", "saved", "faith", "yourselves", "gift", "God", "works", "boast"]
+        },
+
+        // FAMILY & CHILDREN
+        {
+          reference: "Psalm 127:3",
+          text: "Children are a heritage from the Lord, offspring a reward from him.",
+          keywords: ["children", "heritage", "Lord", "offspring", "reward", "family"]
+        },
+        {
+          reference: "Ephesians 6:1-2",
+          text: "Children, obey your parents in the Lord, for this is right. Honor your father and mother—which is the first commandment with a promise.",
+          keywords: ["children", "obey", "parents", "Lord", "right", "honor", "father", "mother", "commandment", "promise"]
+        },
+        {
+          reference: "Proverbs 22:6",
+          text: "Start children off on the way they should go, and even when they are old they will not turn from it.",
+          keywords: ["start", "children", "way", "should go", "old", "turn", "train"]
+        },
+        {
+          reference: "1 Timothy 5:8",
+          text: "Anyone who does not provide for their relatives, and especially for their own household, has denied the faith and is worse than an unbeliever.",
+          keywords: ["provide", "relatives", "household", "denied", "faith", "unbeliever", "family"]
+        },
+
+        // FRIENDSHIP & COMMUNITY
+        {
+          reference: "Proverbs 17:17",
+          text: "A friend loves at all times, and a brother is born for a time of adversity.",
+          keywords: ["friend", "loves", "all times", "brother", "born", "adversity", "friendship"]
+        },
+        {
+          reference: "Ecclesiastes 4:12",
+          text: "Though one may be overpowered, two can defend themselves. A cord of three strands is not quickly broken.",
+          keywords: ["overpowered", "two", "defend", "cord", "three", "strands", "broken", "together"]
+        },
+        {
+          reference: "Hebrews 10:24-25",
+          text: "And let us consider how we may spur one another on toward love and good deeds, not giving up meeting together, as some are in the habit of doing, but encouraging one another—and all the more as you see the Day approaching.",
+          keywords: ["consider", "spur", "one another", "love", "good deeds", "meeting", "together", "encouraging", "Day"]
+        },
+        {
+          reference: "1 Thessalonians 5:11",
+          text: "Therefore encourage one another and build each other up, just as in fact you are doing.",
+          keywords: ["encourage", "one another", "build", "each other", "up", "community"]
+        },
+
+        // SUFFERING & TRIALS
+        {
+          reference: "Romans 8:28",
+          text: "And we know that in all things God works for the good of those who love him, who have been called according to his purpose.",
+          keywords: ["know", "all things", "God", "works", "good", "love", "called", "purpose"]
+        },
+        {
+          reference: "2 Corinthians 4:17",
+          text: "For our light and momentary troubles are achieving for us an eternal glory that far outweighs them all.",
+          keywords: ["light", "momentary", "troubles", "achieving", "eternal", "glory", "outweighs", "trials"]
+        },
+        {
+          reference: "James 1:2-3",
+          text: "Consider it pure joy, my brothers and sisters, whenever you face trials of many kinds, because you know that the testing of your faith produces perseverance.",
+          keywords: ["pure", "joy", "brothers", "sisters", "face", "trials", "kinds", "testing", "faith", "perseverance"]
+        },
+        {
+          reference: "1 Peter 4:19",
+          text: "So then, those who suffer according to God's will should commit themselves to their faithful Creator and continue to do good.",
+          keywords: ["suffer", "God's will", "commit", "faithful", "Creator", "continue", "good"]
+        },
+
+        // MONEY & MATERIALISM
+        {
+          reference: "1 Timothy 6:10",
+          text: "For the love of money is a root of all kinds of evil. Some people, eager for money, have wandered from the faith and pierced themselves with many griefs.",
+          keywords: ["love", "money", "root", "evil", "eager", "wandered", "faith", "pierced", "griefs"]
+        },
+        {
+          reference: "Matthew 6:24",
+          text: "No one can serve two masters. Either you will hate the one and love the other, or you will be devoted to the one and despise the other. You cannot serve both God and money.",
+          keywords: ["serve", "two", "masters", "hate", "love", "devoted", "despise", "God", "money"]
+        },
+        {
+          reference: "Hebrews 13:5",
+          text: "Keep your lives free from the love of money and be content with what you have, because God has said, 'Never will I leave you; never will I forsake you.'",
+          keywords: ["lives", "free", "love", "money", "content", "have", "God", "never", "leave", "forsake"]
+        },
+        {
+          reference: "Luke 12:15",
+          text: "Then he said to them, 'Watch out! Be on your guard against all kinds of greed; life does not consist in an abundance of possessions.'",
+          keywords: ["watch", "guard", "greed", "life", "consist", "abundance", "possessions"]
+        },
+
+        // DEATH & ETERNAL HOPE
+        {
+          reference: "John 11:25-26",
+          text: "Jesus said to her, 'I am the resurrection and the life. The one who believes in me will live, even though they die; and whoever lives by believing in me will never die. Do you believe this?'",
+          keywords: ["Jesus", "resurrection", "life", "believes", "live", "die", "believing", "never", "death"]
+        },
+        {
+          reference: "1 Corinthians 15:55",
+          text: "Where, O death, is your victory? Where, O death, is your sting?",
+          keywords: ["death", "victory", "sting", "overcome"]
+        },
+        {
+          reference: "Revelation 21:4",
+          text: "He will wipe every tear from their eyes. There will be no more death or mourning or crying or pain, for the old order of things has passed away.",
+          keywords: ["wipe", "tear", "eyes", "no more", "death", "mourning", "crying", "pain", "old", "passed away"]
+        },
+        {
+          reference: "Psalm 23:4",
+          text: "Even though I walk through the darkest valley, I will fear no evil, for you are with me; your rod and your staff, they comfort me.",
+          keywords: ["walk", "darkest", "valley", "fear", "evil", "with me", "rod", "staff", "comfort"]
+        }
+      ];
+
+      // Get search query from URL
+      function getSearchQuery() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get('q') || '';
+      }
+
+      // Enhanced search algorithm with multiple matching strategies
+      function calculateMatchScore(searchText, verse) {
+        if (!searchText || !verse.keywords) return 0;
+        
+        const searchWords = searchText.toLowerCase().split(/\s+/).filter(word => word.length > 2);
+        const verseText = verse.text.toLowerCase();
+        const verseKeywords = verse.keywords.map(k => k.toLowerCase());
+        
+        let score = 0;
+        let maxPossibleScore = searchWords.length * 10;
+        
+        searchWords.forEach(searchWord => {
+          // Exact keyword match (highest score)
+          if (verseKeywords.includes(searchWord)) {
+            score += 10;
+          }
+          // Partial keyword match
+          else if (verseKeywords.some(keyword => keyword.includes(searchWord) || searchWord.includes(keyword))) {
+            score += 7;
+          }
+          // Direct text match
+          else if (verseText.includes(searchWord)) {
+            score += 5;
+          }
+          // Similar words (basic stemming)
+          else if (verseKeywords.some(keyword => {
+            // Check for common word variations
+            const variations = getWordVariations(searchWord);
+            return variations.some(variation => keyword.includes(variation) || variation.includes(keyword));
+          })) {
+            score += 3;
+          }
+        });
+        
+        // Calculate percentage, cap at 95%
+        const percentage = Math.round((score / maxPossibleScore) * 100);
+        return Math.min(percentage, 95);
+      }
+
+      // Get word variations for better matching
+      function getWordVariations(word) {
+        const variations = [word];
+        
+        // Common word endings and variations
+        const endings = {
+          'love': ['loving', 'loved', 'lover', 'loves'],
+          'hope': ['hoping', 'hoped', 'hopes', 'hopeful'],
+          'faith': ['faithful', 'faithfulness'],
+          'peace': ['peaceful', 'peacefully'],
+          'joy': ['joyful', 'joyous', 'rejoice', 'rejoicing'],
+          'fear': ['fearful', 'afraid', 'scary', 'fears'],
+          'strong': ['strength', 'strengthen', 'stronger'],
+          'trust': ['trusting', 'trusted', 'trusts'],
+          'comfort': ['comforting', 'comforted', 'comforts'],
+          'forgive': ['forgiveness', 'forgiven', 'forgiving'],
+          'save': ['saved', 'saving', 'salvation', 'savior'],
+          'praise': ['praising', 'praised', 'praises'],
+          'worship': ['worshiping', 'worshipped', 'worships'],
+          'pray': ['prayer', 'praying', 'prayed', 'prayers'],
+          'bless': ['blessed', 'blessing', 'blessings']
+        };
+        
+        if (endings[word]) {
+          variations.push(...endings[word]);
+        }
+        
+        // Check if word is a variation of a base word
+        Object.entries(endings).forEach(([base, vars]) => {
+          if (vars.includes(word)) {
+            variations.push(base, ...vars);
+          }
+        });
+        
+        return [...new Set(variations)]; // Remove duplicates
+      }
+
+      // Search and display results
+      function searchAndDisplay() {
+        const searchQuery = getSearchQuery();
+        const searchField = document.getElementById('searchField');
+        const resultsContainer = document.getElementById('searchResults');
+        const resultsTitle = document.getElementById('resultsTitle');
+
+        // Update verse count
+        document.getElementById('verseCount').textContent = bibleDatabase.length;
+
+        if (searchQuery) {
+          searchField.value = searchQuery;
+          
+          // Calculate scores and sort results
+          const results = bibleDatabase.map(verse => ({
+            ...verse,
+            score: calculateMatchScore(searchQuery, verse)
+          })).filter(verse => verse.score > 0)
+            .sort((a, b) => b.score - a.score)
+            .slice(0, 20); // Limit to top 20 results
+
+          if (results.length > 0) {
+            resultsTitle.textContent = `Found ${results.length} Bible Verses for "${searchQuery}"`;
+            
+            resultsContainer.innerHTML = results.map((verse, index) => `
+              <div class="flex gap-4 bg-white px-4 py-3 justify-between border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                <div class="flex flex-1 flex-col justify-center">
+                  <p class="text-[#141414] text-base font-medium leading-normal">${verse.reference}</p>
+                  <div class="flex items-center gap-4 mb-2">
+                    <p class="text-[#757575] text-sm font-normal leading-normal">Match Score: ${verse.score}%</p>
+                    <p class="text-[#757575] text-xs">Result ${index + 1} of ${results.length}</p>
+                  </div>
+                  <p class="text-[#757575] text-sm font-normal leading-normal line-height-relaxed">${verse.text}</p>
+                  <div class="mt-2 flex flex-wrap gap-1">
+                    ${verse.keywords.slice(0, 6).map(keyword => 
+                      `<span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">${keyword}</span>`
+                    ).join('')}
+                  </div>
+                </div>
+                <div class="shrink-0 flex flex-col gap-2">
+                  <button onclick="shareVerse('${verse.reference}', '${verse.text.replace(/'/g, "\\'")}'); return false;" 
+                          class="text-[#141414] flex size-7 items-center justify-center hover:bg-gray-100 rounded transition-colors"
+                          title="Share this verse">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                      <path d="M229.66,109.66l-48,48a8,8,0,0,1-11.32-11.32L204.69,112H165a88,88,0,0,0-85.23,66,8,8,0,0,1-15.5-4A103.94,103.94,0,0,1,165,96h39.71L170.34,61.66a8,8,0,0,1,11.32-11.32l48,48A8,8,0,0,1,229.66,109.66ZM192,208H40V88a8,8,0,0,0-16,0V208a16,16,0,0,0,16,16H192a8,8,0,0,0,0-16Z"></path>
+                    </svg>
+                  </button>
+                  <button onclick="copyVerse('${verse.reference}', '${verse.text.replace(/'/g, "\\'")}'); return false;"
+                          class="text-[#141414] flex size-7 items-center justify-center hover:bg-gray-100 rounded transition-colors"
+                          title="Copy to clipboard">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                      <path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            `).join('');
+          } else {
+            resultsTitle.textContent = "No Matching Bible Passages Found";
+            resultsContainer.innerHTML = `
+              <div class="text-center py-8">
+                <div class="mb-4">
+                  <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.29-.92-5.172-2.172M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                  </svg>
+                </div>
+                <h3 class="text-lg font-medium text-gray-900 mb-2">No matches found for "${searchQuery}"</h3>
+                <p class="text-[#757575] text-base mb-4">Try searching with different words. Our database includes ${bibleDatabase.length} verses covering themes like:</p>
+                <div class="flex flex-wrap justify-center gap-2 mb-6">
+                  ${['love', 'hope', 'faith', 'peace', 'strength', 'fear', 'joy', 'forgiveness', 'salvation', 'comfort'].map(theme => 
+                    `<button onclick="searchByTheme('${theme}')" class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm hover:bg-blue-200 transition-colors">${theme}</button>`
+                  ).join('')}
+                </div>
+                <button onclick="window.location.href='index.html'" class="bg-[#141414] text-white px-6 py-2 rounded-lg hover:bg-gray-800 transition-colors">
+                  Try Another Search
+                </button>
+              </div>
+            `;
+          }
+        } else {
+          resultsTitle.textContent = "Search Bible Verses";
+          resultsContainer.innerHTML = `
+            <div class="text-center py-8">
+              <div class="mb-4">
+                <svg class="mx-auto h-16 w-16 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Discover Biblical Wisdom in Music</h3>
+              <p class="text-[#757575] text-base mb-6">Our database contains <strong>${bibleDatabase.length} Bible verses</strong> ready to match with your favorite song lyrics. Try searching for themes that resonate with you:</p>
+              <div class="grid grid-cols-2 md:grid-cols-5 gap-2 mb-6">
+                ${['love', 'hope', 'faith', 'peace', 'strength', 'fear', 'joy', 'forgiveness', 'salvation', 'comfort'].map(theme => 
+                  `<button onclick="searchByTheme('${theme}')" class="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-4 py-2 rounded-lg text-sm hover:from-blue-600 hover:to-purple-700 transition-all transform hover:scale-105">${theme}</button>`
+                ).join('')}
+              </div>
+              <button onclick="window.location.href='index.html'" class="bg-[#141414] text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors">
+                Start Searching
+              </button>
+            </div>
+          `;
+        }
+      }
+
+      // Search by theme
+      function searchByTheme(theme) {
+        window.location.href = `search.html?q=${encodeURIComponent(theme)}`;
+      }
+
+      // Enhanced share verse function
+      function shareVerse(reference, text) {
+        const shareText = `"${text}" - ${reference}`;
+        const shareUrl = `${window.location.origin}${window.location.pathname}?q=${encodeURIComponent(reference)}`;
+        
+        if (navigator.share) {
+          navigator.share({
+            title: `Bible Verse: ${reference}`,
+            text: shareText,
+            url: shareUrl
+          }).catch(err => console.log('Error sharing:', err));
+        } else {
+          // Fallback - copy to clipboard
+          navigator.clipboard.writeText(`${shareText}\n\nFound at: ${shareUrl}`)
+            .then(() => {
+              showNotification('Verse copied to clipboard!', 'success');
+            })
+            .catch(() => {
+              // Ultimate fallback
+              prompt('Copy this verse:', `${shareText}\n\nFound at: ${shareUrl}`);
+            });
+        }
+      }
+
+      // Copy verse function
+      function copyVerse(reference, text) {
+        const copyText = `"${text}" - ${reference}`;
+        navigator.clipboard.writeText(copyText)
+          .then(() => {
+            showNotification('Verse copied to clipboard!', 'success');
+          })
+          .catch(() => {
+            // Fallback for older browsers
+            const textArea = document.createElement('textarea');
+            textArea.value = copyText;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            showNotification('Verse copied to clipboard!', 'success');
+          });
+      }
+
+      // Show notification
+      function showNotification(message, type = 'info') {
+        const notification = document.createElement('div');
+        notification.className = `fixed top-4 right-4 px-6 py-3 rounded-lg shadow-lg z-50 transition-all transform translate-x-full`;
+        notification.style.backgroundColor = type === 'success' ? '#10B981' : '#3B82F6';
+        notification.style.color = 'white';
+        notification.textContent = message;
+        
+        document.body.appendChild(notification);
+        
+        // Animate in
+        setTimeout(() => {
+          notification.style.transform = 'translateX(0)';
+        }, 100);
+        
+        // Animate out
+        setTimeout(() => {
+          notification.style.transform = 'translateX(full)';
+          setTimeout(() => {
+            document.body.removeChild(notification);
+          }, 300);
+        }, 3000);
+      }
+
+      // Clear search function
+      function clearSearch() {
+        document.getElementById('searchField').value = '';
+        window.location.href = 'index.html';
+      }
+
+      // Show info function
+      function showInfo() {
+        alert(`📖 Lyric Bible Match Database Info:\n\n• ${bibleDatabase.length} Bible verses loaded\n• Advanced keyword matching\n• Covers major Biblical themes\n• Smart search algorithm\n\nTry searching for emotions, themes, or specific words that appear in song lyrics. Our AI will find relevant Bible verses that match the spiritual themes in your music!`);
+      }
+
+      // Learn more function
+      function learnMore() {
+        window.open('https://www.bible.com/', '_blank');
+      }
+
+      // Enhanced search on Enter key
+      document.getElementById('searchField').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          const newQuery = this.value.trim();
+          if (newQuery) {
+            window.location.href = `search.html?q=${encodeURIComponent(newQuery)}`;
+          }
+        }
+      });
+
+      // Load results when page loads
+      document.addEventListener('DOMContentLoaded', function() {
+        searchAndDisplay();
+        
+        // Add loading animation
+        if (getSearchQuery()) {
+          document.body.style.cursor = 'wait';
+          setTimeout(() => {
+            document.body.style.cursor = 'default';
+          }, 1000);
+        }
+      });
+
+      // Console info for developers
+      console.log(`🎵📖 Lyric Bible Match loaded successfully!`);
+      console.log(`Database: ${bibleDatabase.length} Bible verses`);
+      console.log(`Themes covered: Love, Faith, Hope, Peace, Strength, Joy, Forgiveness, Salvation, and more!`);
+    </script>
   </body>
 </html>
