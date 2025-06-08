@@ -8,7 +8,7 @@
       href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B700%3B800"
     />
 
-    <title>Stitch Design</title>
+    <title>Lyric Bible Match</title>
     <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
 
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -30,11 +30,13 @@
           </div>
           <div class="flex flex-1 justify-end gap-8">
             <div class="flex items-center gap-9">
-              <a class="text-[#141414] text-sm font-medium leading-normal" href="#">Home</a>
-              <a class="text-[#141414] text-sm font-medium leading-normal" href="#">About</a>
-              <a class="text-[#141414] text-sm font-medium leading-normal" href="#">Contact</a>
+              <a class="text-[#141414] text-sm font-medium leading-normal" href="index.html">Home</a>
+              <a class="text-[#141414] text-sm font-medium leading-normal" href="search.html">Search</a>
+              <a class="text-[#141414] text-sm font-medium leading-normal" href="#about">About</a>
+              <a class="text-[#141414] text-sm font-medium leading-normal" href="#contact">Contact</a>
             </div>
             <button
+              onclick="toggleLanguage()"
               class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#f2f2f2] text-[#141414] text-sm font-bold leading-normal tracking-[0.015em]"
             >
               <span class="truncate">Language</span>
@@ -75,12 +77,15 @@
                         </svg>
                       </div>
                       <input
+                        id="searchInput"
                         placeholder="Enter song lyrics"
                         class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-[#141414] focus:outline-0 focus:ring-0 border border-[#e0e0e0] bg-white focus:border-[#e0e0e0] h-full placeholder:text-[#757575] px-[15px] rounded-r-none border-r-0 pr-2 rounded-l-none border-l-0 pl-2 text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal"
                         value=""
                       />
                       <div class="flex items-center justify-center rounded-r-lg border-l-0 border border-[#e0e0e0] bg-white pr-[7px]">
                         <button
+                          id="searchButton"
+                          onclick="searchLyrics()"
                           class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#141414] text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]"
                         >
                           <span class="truncate">Search</span>
@@ -104,5 +109,37 @@
         </div>
       </div>
     </div>
+
+    <script>
+      // Função para buscar letras
+      function searchLyrics() {
+        const searchInput = document.getElementById('searchInput');
+        const searchText = searchInput.value.trim();
+        
+        if (searchText !== '') {
+          // Vai para a página de resultados com o texto da busca
+          window.location.href = 'search.html?q=' + encodeURIComponent(searchText);
+        } else {
+          alert('Please enter some lyrics to search!');
+          searchInput.focus();
+        }
+      }
+
+      // Buscar quando pressionar Enter
+      document.getElementById('searchInput').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          searchLyrics();
+        }
+      });
+
+      // Função para trocar idioma
+      function toggleLanguage() {
+        alert('Language feature coming soon! 🌍');
+        // Aqui você pode adicionar a funcionalidade de idioma depois
+      }
+
+      // Mostrar mensagem quando a página carrega
+      console.log('Lyric Bible Match loaded successfully! 🎵📖');
+    </script>
   </body>
 </html>
