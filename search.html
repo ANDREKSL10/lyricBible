@@ -106,26 +106,56 @@
               <!-- Results will be loaded here by JavaScript -->
             </div>
 
-            <h2 class="text-[#141414] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Advertisement</h2>
-            <div class="p-4">
-              <div class="flex items-stretch justify-between gap-4 rounded-lg">
-                <div class="flex flex-[2_2_0px] flex-col gap-4">
-                  <div class="flex flex-col gap-1">
-                    <p class="text-[#141414] text-base font-bold leading-tight">Explore the Bible</p>
-                    <p class="text-[#757575] text-sm font-normal leading-normal">Discover more about the Bible and its teachings with our expanded database of verses.</p>
+            <h2 class="text-[#141414] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Recommended Resources</h2>
+            
+            <!-- Banner 1 - Estudo Bíblico -->
+            <div class="px-4 pb-4">
+              <a href="#" onclick="trackClick('bible-study', 1); openAffiliate('bible-study')" 
+                 class="block group hover:shadow-lg transition-all duration-300 rounded-lg overflow-hidden">
+                <div class="flex items-stretch justify-between gap-4 bg-gradient-to-r from-purple-50 to-blue-50 p-6 rounded-lg border border-purple-100 hover:border-purple-300">
+                  <div class="flex flex-[2_2_0px] flex-col gap-3 justify-center">
+                    <div class="flex flex-col gap-2">
+                      <p class="text-[#141414] text-lg font-bold leading-tight">📚 Deep Bible Study Tools</p>
+                      <p class="text-[#757575] text-sm font-normal leading-normal">Dive deeper into the verses you discovered! Access commentaries, original Greek/Hebrew texts, and study guides.</p>
+                      <div class="flex items-center gap-2 text-xs text-purple-600">
+                        <span class="bg-purple-100 px-2 py-1 rounded">Scholar Edition</span>
+                        <span class="bg-orange-100 text-orange-600 px-2 py-1 rounded">Best Seller</span>
+                      </div>
+                    </div>
+                    <button class="flex min-w-[84px] max-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-purple-600 text-white text-sm font-bold leading-normal tracking-[0.015em] w-fit hover:bg-purple-700 transition-colors">
+                      <span class="truncate">Learn More</span>
+                    </button>
                   </div>
-                  <button
-                    onclick="learnMore()"
-                    class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 flex-row-reverse bg-[#f2f2f2] text-[#141414] text-sm font-medium leading-normal w-fit"
-                  >
-                    <span class="truncate">Learn More</span>
-                  </button>
+                  <div class="w-32 bg-center bg-no-repeat bg-cover rounded-lg flex-shrink-0" 
+                       style='background-image: url("https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=300&h=200&fit=crop&crop=center");'>
+                  </div>
                 </div>
-                <div
-                  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex-1"
-                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB44NM-2sledQNtgFUv7xx-4wdGi9Pq7vJ0dpizk9dgToV2NxY024fr3PiAZINSb9gtV-x07HqFvuFS_qFrUQfv0h4xaAouCXxX0QwhW03qNn-XXq6eqcN_uGcgNgpdx4M56hVJzbSjV0M3WgekobufV6vN2QpGla53DdoF2rDNvkZD_ua53AtR_F9jYHvqsDC_7b3504yRADZFB41ruV9btkmy0wPiw9d2Y6QQ4VV1bIQaWceo-m3fT3koDSw3aXhPTW4vD5tpWO2W");'
-                ></div>
-              </div>
+              </a>
+            </div>
+
+            <!-- Banner 2 - Devocional -->
+            <div class="px-4 pb-4">
+              <a href="#" onclick="trackClick('devotional', 2); openAffiliate('devotional')" 
+                 class="block group hover:shadow-lg transition-all duration-300 rounded-lg overflow-hidden">
+                <div class="flex items-stretch justify-between gap-4 bg-gradient-to-r from-yellow-50 to-green-50 p-6 rounded-lg border border-yellow-100 hover:border-yellow-300">
+                  <div class="flex flex-[2_2_0px] flex-col gap-3 justify-center">
+                    <div class="flex flex-col gap-2">
+                      <p class="text-[#141414] text-lg font-bold leading-tight">🌅 Daily Devotional App</p>
+                      <p class="text-[#757575] text-sm font-normal leading-normal">Start each day with inspiration! Get personalized devotionals that match the Biblical themes in your favorite music.</p>
+                      <div class="flex items-center gap-2 text-xs text-yellow-600">
+                        <span class="bg-yellow-100 px-2 py-1 rounded">Daily Content</span>
+                        <span class="bg-green-100 text-green-600 px-2 py-1 rounded">Premium</span>
+                      </div>
+                    </div>
+                    <button class="flex min-w-[84px] max-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-yellow-600 text-white text-sm font-bold leading-normal tracking-[0.015em] w-fit hover:bg-yellow-700 transition-colors">
+                      <span class="truncate">Try Free</span>
+                    </button>
+                  </div>
+                  <div class="w-32 bg-center bg-no-repeat bg-cover rounded-lg flex-shrink-0" 
+                       style='background-image: url("https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&h=200&fit=crop&crop=center");'>
+                  </div>
+                </div>
+              </a>
             </div>
           </div>
         </div>
@@ -776,6 +806,86 @@
         window.open('https://www.bible.com/', '_blank');
       }
 
+      // === SISTEMA DE AFILIADOS ===
+      
+      // CONFIGURE SEUS LINKS DE AFILIADO AQUI:
+      const affiliateLinks = {
+        'bible-study': 'https://www.logos.com/', // Substitua pelo seu link de afiliado
+        'devotional': 'https://www.youversion.com/the-bible-app/', // Substitua pelo seu link de afiliado
+        'bible-app': 'https://www.youversion.com/',
+        'christian-music': 'https://www.spotify.com/premium/'
+      };
+
+      // Função para abrir link de afiliado
+      function openAffiliate(type) {
+        const link = affiliateLinks[type];
+        if (link) {
+          // Abre em nova aba
+          window.open(link, '_blank', 'noopener,noreferrer');
+        } else {
+          alert('Link não configurado ainda!');
+        }
+      }
+
+      // Função para tracking de cliques (analytics)
+      function trackClick(type, bannerId) {
+        // Analytics básico - você pode integrar com Google Analytics aqui
+        console.log(`Affiliate click tracked: ${type}, Banner: ${bannerId}, Time: ${new Date().toISOString()}`);
+        
+        // Salvar no localStorage para estatísticas próprias
+        const clicks = JSON.parse(localStorage.getItem('affiliateClicks') || '[]');
+        clicks.push({
+          type: type,
+          bannerId: bannerId,
+          timestamp: new Date().toISOString(),
+          page: 'search',
+          searchQuery: getSearchQuery()
+        });
+        localStorage.setItem('affiliateClicks', JSON.stringify(clicks));
+        
+        // Mostrar notificação de sucesso
+        showNotification('Opening affiliate link...', 'info');
+        
+        // Se você usar Google Analytics, adicione aqui:
+        // gtag('event', 'affiliate_click', {
+        //   'affiliate_type': type,
+        //   'banner_id': bannerId,
+        //   'search_query': getSearchQuery()
+        // });
+      }
+
+      // Função para ver estatísticas (para administradores)
+      function showAffiliateStats() {
+        const clicks = JSON.parse(localStorage.getItem('affiliateClicks') || '[]');
+        const stats = {
+          total: clicks.length,
+          byType: {},
+          byPage: {},
+          last24h: 0
+        };
+        
+        const now = new Date();
+        const yesterday = new Date(now.getTime() - 24 * 60 * 60 * 1000);
+        
+        clicks.forEach(click => {
+          // Count by type
+          stats.byType[click.type] = (stats.byType[click.type] || 0) + 1;
+          
+          // Count by page
+          stats.byPage[click.page] = (stats.byPage[click.page] || 0) + 1;
+          
+          // Count last 24h
+          if (new Date(click.timestamp) > yesterday) {
+            stats.last24h++;
+          }
+        });
+        
+        console.log('📊 Estatísticas de Afiliado:', stats);
+        console.log('📋 Todos os cliques:', clicks);
+        
+        alert(`📊 Estatísticas de Afiliado:\n\n• Total de cliques: ${stats.total}\n• Últimas 24h: ${stats.last24h}\n• Por página: ${JSON.stringify(stats.byPage, null, 2)}\n• Por tipo: ${JSON.stringify(stats.byType, null, 2)}\n\nVeja o console para detalhes completos.`);
+      }
+
       // Enhanced search on Enter key
       document.getElementById('searchField').addEventListener('keypress', function(e) {
         if (e.key === 'Enter') {
@@ -803,6 +913,7 @@
       console.log(`🎵📖 Lyric Bible Match loaded successfully!`);
       console.log(`Database: ${bibleDatabase.length} Bible verses`);
       console.log(`Themes covered: Love, Faith, Hope, Peace, Strength, Joy, Forgiveness, Salvation, and more!`);
+      console.log('📊 Para ver estatísticas de afiliado, digite: showAffiliateStats()');
     </script>
   </body>
 </html>
