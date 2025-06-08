@@ -96,14 +96,56 @@
                 </div>
               </div>
             </div>
-            <h2 class="text-[#141414] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Advertisement</h2>
-            <div class="flex w-full grow bg-white @container p-4">
-              <div class="w-full gap-1 overflow-hidden bg-white @[480px]:gap-2 aspect-[3/2] rounded-lg flex">
-                <div
-                  class="w-full bg-center bg-no-repeat bg-cover aspect-auto rounded-none flex-1"
-                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDhooW_Fgm2qgpOu3u2bbxV-5lNVUzevzSkhMWYy-6getHUcspXF6aUlzfQfdO8apO1V56zxZN_u8E1QpmAIEpkehvgOf02vHr8QjTjMeGID2xopWWlcwuxjAL9gMkApR4AGBOw5K8XBqhYZSSEFTT6WkQrVTDihzW0FV6ecgubnfLEPtZ12e5LZ4aMullFTg2MpOtosvgxwizpjvDc8-C8PSyMoxSkBXtOmtwQ6wS_x13Hb4oQqzuDvVYiMAa4iIgv4nmzgA5QqvEZ");'
-                ></div>
-              </div>
+            <h2 class="text-[#141414] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Recommended for You</h2>
+            
+            <!-- Banner 1 - Bíblia Digital -->
+            <div class="px-4 pb-4">
+              <a href="#" onclick="trackClick('bible-app', 1); openAffiliate('bible-app')" 
+                 class="block group hover:shadow-lg transition-all duration-300 rounded-lg overflow-hidden">
+                <div class="flex items-stretch justify-between gap-4 bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-lg border border-blue-100 hover:border-blue-300">
+                  <div class="flex flex-[2_2_0px] flex-col gap-3 justify-center">
+                    <div class="flex flex-col gap-2">
+                      <p class="text-[#141414] text-lg font-bold leading-tight">📖 Study the Bible Digitally</p>
+                      <p class="text-[#757575] text-sm font-normal leading-normal">Access thousands of Bible versions, commentaries, and study tools. Perfect companion to your lyric matching journey!</p>
+                      <div class="flex items-center gap-2 text-xs text-blue-600">
+                        <span class="bg-blue-100 px-2 py-1 rounded">Free Download</span>
+                        <span class="bg-green-100 text-green-600 px-2 py-1 rounded">4.8★ Rating</span>
+                      </div>
+                    </div>
+                    <button class="flex min-w-[84px] max-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-blue-600 text-white text-sm font-bold leading-normal tracking-[0.015em] w-fit hover:bg-blue-700 transition-colors">
+                      <span class="truncate">Download Now</span>
+                    </button>
+                  </div>
+                  <div class="w-32 bg-center bg-no-repeat bg-cover rounded-lg flex-shrink-0" 
+                       style='background-image: url("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=200&fit=crop&crop=center");'>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <!-- Banner 2 - Música Cristã -->
+            <div class="px-4 pb-4">
+              <a href="#" onclick="trackClick('christian-music', 2); openAffiliate('christian-music')" 
+                 class="block group hover:shadow-lg transition-all duration-300 rounded-lg overflow-hidden">
+                <div class="flex items-stretch justify-between gap-4 bg-gradient-to-r from-green-50 to-blue-50 p-6 rounded-lg border border-green-100 hover:border-green-300">
+                  <div class="flex flex-[2_2_0px] flex-col gap-3 justify-center">
+                    <div class="flex flex-col gap-2">
+                      <p class="text-[#141414] text-lg font-bold leading-tight">🎵 Discover Christian Music</p>
+                      <p class="text-[#757575] text-sm font-normal leading-normal">Explore worship songs and Christian artists that align with the Biblical themes you love. Stream millions of faith-based tracks!</p>
+                      <div class="flex items-center gap-2 text-xs text-green-600">
+                        <span class="bg-green-100 px-2 py-1 rounded">Free Trial</span>
+                        <span class="bg-blue-100 text-blue-600 px-2 py-1 rounded">Ad-Free</span>
+                      </div>
+                    </div>
+                    <button class="flex min-w-[84px] max-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-green-600 text-white text-sm font-bold leading-normal tracking-[0.015em] w-fit hover:bg-green-700 transition-colors">
+                      <span class="truncate">Start Free Trial</span>
+                    </button>
+                  </div>
+                  <div class="w-32 bg-center bg-no-repeat bg-cover rounded-lg flex-shrink-0" 
+                       style='background-image: url("https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=200&fit=crop&crop=center");'>
+                  </div>
+                </div>
+              </a>
             </div>
           </div>
         </div>
@@ -138,8 +180,57 @@
         // Aqui você pode adicionar a funcionalidade de idioma depois
       }
 
+      // === SISTEMA DE AFILIADOS ===
+      
+      // CONFIGURE SEUS LINKS DE AFILIADO AQUI:
+      const affiliateLinks = {
+        'bible-app': 'https://www.youversion.com/', // Substitua pelo seu link de afiliado
+        'christian-music': 'https://www.spotify.com/premium/' // Substitua pelo seu link de afiliado
+      };
+
+      // Função para abrir link de afiliado
+      function openAffiliate(type) {
+        const link = affiliateLinks[type];
+        if (link) {
+          // Abre em nova aba
+          window.open(link, '_blank', 'noopener,noreferrer');
+        } else {
+          alert('Link não configurado ainda!');
+        }
+      }
+
+      // Função para tracking de cliques (analytics)
+      function trackClick(type, bannerId) {
+        // Analytics básico - você pode integrar com Google Analytics aqui
+        console.log(`Affiliate click tracked: ${type}, Banner: ${bannerId}, Time: ${new Date().toISOString()}`);
+        
+        // Salvar no localStorage para estatísticas próprias
+        const clicks = JSON.parse(localStorage.getItem('affiliateClicks') || '[]');
+        clicks.push({
+          type: type,
+          bannerId: bannerId,
+          timestamp: new Date().toISOString(),
+          page: 'home'
+        });
+        localStorage.setItem('affiliateClicks', JSON.stringify(clicks));
+        
+        // Se você usar Google Analytics, adicione aqui:
+        // gtag('event', 'affiliate_click', {
+        //   'affiliate_type': type,
+        //   'banner_id': bannerId
+        // });
+      }
+
+      // Função para ver estatísticas (para administradores)
+      function showStats() {
+        const clicks = JSON.parse(localStorage.getItem('affiliateClicks') || '[]');
+        console.log('Estatísticas de Cliques de Afiliado:', clicks);
+        alert(`Total de cliques: ${clicks.length}\nVeja o console para detalhes.`);
+      }
+
       // Mostrar mensagem quando a página carrega
       console.log('Lyric Bible Match loaded successfully! 🎵📖');
+      console.log('Para ver estatísticas de afiliado, digite: showStats()');
     </script>
   </body>
 </html>
